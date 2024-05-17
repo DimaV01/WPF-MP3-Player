@@ -1,0 +1,46 @@
+﻿<Window x:Class="Blueberry.PlaylistEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="/res/blueberries.ico"
+        Title="Edit Playlist" Height="514" Width="400" Background="#141414">
+    <Grid Height="484" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="181*"/>
+            <RowDefinition Height="197*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" Orientation="Vertical" Grid.Row="1">
+            <Button Content="Add Track" Click="AddTrack_Click" Margin="5" Height="45" Background="#383838" Foreground="#b3b3b3"/>
+            <Button Content="Change Cover" Click="ChangeCover_Click" Margin="5" Background="#383838" Foreground="#b3b3b3" Grid.Row="1" Grid.Column="1" Height="50"/>
+        </StackPanel>
+        <ScrollViewer Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,13,0,1" Background="#383838" >
+            <ListView x:Name="trackListView" Margin="5" Background="#4a4a4a" Foreground="#b3b3b3">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FileName}" Width="260" />
+                            <Button Content="Delete" Margin="10,0,0,0" Click="DeleteTrack_Click" CommandParameter="{Binding}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+
+        <Image x:Name="playlistCover" Margin="5,5,5,5" Grid.Column="0" Grid.Row="1" />
+
+        <TextBox x:Name="playlistTitle" Margin="5,10,5,10" Text="{Binding Name}" Background="#383838" Foreground="#b3b3b3" Grid.ColumnSpan="2" />
+
+        <StackPanel Orientation="Horizontal" Margin="10,5,10,5" Grid.Row="3" Grid.ColumnSpan="2">
+            <Button Content="Save" Click="Save_Click" Margin="70,5" Width="92" Background="#383838" Foreground="#b3b3b3"/>
+            <Button Content="Cancel" Click="Cancel_Click" Margin="-02,5" Width="99" Background="#383838" Foreground="#b3b3b3"/>
+        </StackPanel>
+
+    </Grid>
+
+</Window>

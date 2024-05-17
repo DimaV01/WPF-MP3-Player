@@ -1,0 +1,10 @@
+﻿<Window x:Class="Blueberry.TracksWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tracks List" Height="400" Width="500" Background="#141414">
+    <ScrollViewer >
+        <StackPanel x:Name="TracksPanel" Margin="10">
+            <!-- Список треков будет добавлен сюда программно -->
+        </StackPanel>
+    </ScrollViewer>
+</Window>
